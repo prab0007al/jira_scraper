@@ -41,5 +41,5 @@ This project scrapes public issue tracking data from the Apache Software Foundat
 
 ## Derived Tasks
 The dataset is structured to train a model on **Issue Classification**:
-* **Input:** The issue Title and Description.
+* **Input:** The issue Title, Description and Comment.
 * **Output:** The issue Status (e.g., "Resolved") and Priority (e.g., "Major").
