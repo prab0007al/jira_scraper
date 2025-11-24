@@ -9,10 +9,10 @@ env/
 ENV/
 
 # Generated data
-data/*
-!data/.gitkeep
-*.jsonl
-*.log
+# data/*
+# !data/.gitkeep
+# *.jsonl
+# *.log
 
 # IDE
 .vscode/

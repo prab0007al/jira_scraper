@@ -1,0 +1,3357 @@
+[
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13634755",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13634755",
+    "key": "ZOOKEEPER-4995",
+    "fields": {
+      "summary": "Information for zookeeper 3.9.4 stable version plan release date",
+      "created": "2025-11-20T10:03:00.000+0000",
+      "description": "Current stable version of Apache zookeeper 3.8.5 as per the documentation, However, we see that Apache zookeeper version 3.9.4 is available as a current version. Could anyone let us know if there is  any tentative timeline planned for a stable version release of the 3.9.x version?\r\n[https://zookeeper.apache.org/releases.html]",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13634253",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13634253",
+    "key": "ZOOKEEPER-4994",
+    "fields": {
+      "summary": "Authentication Credential Logging",
+      "created": "2025-11-14T09:10:58.000+0000",
+      "description": "h2. Security Vulnerability Report: Authentication Credential Logging\r\n\r\n*Code Location :* {{org.apache.zookeeper.server.auth.KeyAuthenticationProvider}} (Lines 93-113)\r\n\r\n*Description:*\r\n\r\nThe authentication provider logs sensitive authentication credentials (keys and auth data) in plain text at line 99:\r\n{quote} LOG.debug(\"KeyAuthenticationProvider handleAuthentication ({}, {}) -> FAIL.\\n\", keyStr, authStr);\r\n{quote}\r\n\r\n*Impact:*\r\n # Authentication keys are exposed in debug logs during failed authentication attempts\r\n\r\n # Potential credential leakage through log files, log aggregation systems, or monitoring tools\r\n\r\n # Compliance framework violations (PCI-DSS, GDPR, etc.)\r\n\r\n*Recommendation:*\r\n\r\nRemove or redact sensitive parameters from the log statement:\r\n LOG.debug(\"KeyAuthenticationProvider handleAuthentication -> FAIL (credentials redacted)\");\r\nAlternatively, log only non-sensitive metadata (timestamp, source IP, attempt count) without actual credential values.\r\n ",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13633854",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13633854",
+    "key": "ZOOKEEPER-4993",
+    "fields": {
+      "summary": "Lower \"Attempting to delete candidate container...\" logging to DEBUG",
+      "created": "2025-11-10T16:10:52.000+0000",
+      "description": "[https://github.com/apache/zookeeper/blob/master/zookeeper-server/src/main/java/org/apache/zookeeper/server/ContainerManager.java#L134]\r\n\r\nCan we get the \"Attempting to delete candidate container...\" logging statement lowered from INFO to DEBUG?  We're getting about 2.0+ million of these logging statements each day (no exaggeration, actually).\r\n\r\nIf we raised our logging for this class to WARN, to avoid the above statement, we'd miss the LOG.info(\"Using checkIntervalMs={} maxPerMinute={} maxNeverUsedIntervalMs={}\" statement in the Constructor that we'd like to keep.\r\n\r\nThanks!",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13633681",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13633681",
+    "key": "ZOOKEEPER-4992",
+    "fields": {
+      "summary": "Loading multiple trusted certificates with identical subject names from a PEM bundle fails",
+      "created": "2025-11-07T20:05:48.000+0000",
+      "description": "When a PEM bundle file is read as a trust store, each certificate is added to an in-memory {{KeyStore}} using the subject name as the alias:\r\n\r\n[https://github.com/apache/zookeeper/blob/e8e141b21f3a07797958c74053762048c7a3a0bf/zookeeper-server/src/main/java/org/apache/zookeeper/util/PemReader.java#L95-L98]\r\n    for (X509Certificate certificate : certificateChain) \\{ \r\n        X500Principal principal = certificate.getSubjectX500Principal(); \r\n        keyStore.setCertificateEntry(principal.getName(\"RFC2253\"), certificate); \r\n    }\r\nIf two CA certificates in the bundle share the same subject name, the first entry is overridden by the second.\r\n\r\nThis behavior causes loss of trusted certificates that have identical subjects but are otherwise different certificates. Using the subject name as a unique alias is therefore not suitable.\r\n\r\nRelated to ZOOKEEPER-4990",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13633538",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13633538",
+    "key": "ZOOKEEPER-4991",
+    "fields": {
+      "summary": "For environments of the same scale, zookeeper version 3.9.3 has SSL request processing blocking issues compared to version 3.8.1, which can lead to coredump",
+      "created": "2025-11-06T12:54:22.000+0000",
+      "description": "The Apache ZooKeeper third-party component version 3.9.3 extensively refactored the SSL request processing module. After upgrading to version 3.9.3, large-scale environments (characterized by 200-1000 virtual machine nodes and a large volume of business requests) will experience a large accumulation and blocking of business requests, and the Zookeeper server will not be able to respond to requests properly.\r\nI once attempted to increase the stack memory from 160M to 1024M, but failed to solve the problem;\r\nAfter replacing the Zookeeper package on the environment with the 3.8.1 package, the problem was resolved.\r\n\r\n ",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/2",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/critical.svg",
+        "name": "Critical",
+        "id": "2"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13633512",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13633512",
+    "key": "ZOOKEEPER-4990",
+    "fields": {
+      "summary": "Zookeeper doesn't support multiple ca into truststore",
+      "created": "2025-11-06T09:24:27.000+0000",
+      "description": "We have a microservice zookeeper based, For zookeeper configuration, we have configured with below parameters\r\n\r\nssl.keyStore.location=/var/lib/zookeeper/secrets/server/zk-server-keystore.jks\r\nssl.quorum.keyStore.password=xxxxxxxxxxxxxxxxx\r\nssl.quorum.trustStore.password=xxxxxxxxxxxxxxxxx\r\nssl.quorum.keyStore.location=/var/lib/zookeeper/secrets/server/zk-server-keystore.jks\r\nssl.quorum.trustStore.location=/var/lib/zookeeper/secrets/server/zk-server-truststore.jks\r\nssl.trustStore.password=xxxxxxxxxxxxxxxxx\r\nssl.keyStore.password=xxxxxxxxxxxxxxxxx\r\n\r\nWhere multiple CA's is being imported into trustStore as alias in jks format, so when the client tries to connect with CA signed but it's not working as expected.\r\n\r\n-----\r\nkeytool -list -keystore /var/lib/zookeeper/secrets/server/zk-server-keystore.jks\r\nEnter keystore password:\r\nKeystore type: PKCS12\r\nKeystore provider: SUN\r\n\r\nYour keystore contains 1 entry\r\n\r\nzookeeper, Nov 6, 2025, PrivateKeyEntry,\r\nCertificate fingerprint (SHA-256): 74:30:24:28:52:09:F5:07:6F:AD:39:97:43:5A:CF:A6:53:AF:44:1C:3B:34:11:5A:B1:86:AD:A4:2F:AC:06:EA\r\n-------\r\nbash-4.4$ keytool -list -keystore /var/lib/zookeeper/secrets/server/zk-server-truststore.jks\r\nEnter keystore password:\r\nKeystore type: PKCS12\r\nKeystore provider: SUN\r\n\r\nYour keystore contains 3 entries\r\n\r\nzkserverca_cert, Nov 6, 2025, trustedCertEntry,\r\nCertificate fingerprint (SHA-256): 88:82:EA:2C:AD:A5:A9:DB:13:2C:B6:12:89:7A:B5:52:AF:1D:58:96:83:00:C2:7F:95:C0:C6:A1:E6:4F:45:2C\r\nzkserverca_cert1, Nov 6, 2025, trustedCertEntry,\r\nCertificate fingerprint (SHA-256): 14:95:7E:DA:07:C0:C9:08:01:A3:3D:3C:AF:FD:F8:43:06:E2:CA:D8:DC:1A:20:50:C1:0A:B4:82:5E:45:77:9C\r\nzkserverca_cert2, Nov 6, 2025, trustedCertEntry,\r\nCertificate fingerprint (SHA-256): 9D:5C:95:F6:ED:5D:67:94:96:A5:91:E4:3D:CB:65:34:DB:32:1B:52:B7:A5:28:F0:B0:A2:87:B0:B3:7E:CD:0B\r\n------\r\nkeytool -list -keystore /var/lib/zookeeper/secrets/server/zk-client-truststore.jks\r\nEnter keystore password:\r\nKeystore type: PKCS12\r\nKeystore provider: SUN\r\n\r\nYour keystore contains 3 entries\r\n\r\nzkclientca_cert, Nov 6, 2025, trustedCertEntry,\r\nCertificate fingerprint (SHA-256): 11:F6:BB:D1:36:0C:C0:4E:15:C6:3A:A2:9A:DF:DA:50:06:4E:50:01:B2:54:24:57:8E:DE:1D:02:8B:38:28:8D\r\nzkclientca_cert1, Nov 6, 2025, trustedCertEntry,\r\nCertificate fingerprint (SHA-256): 02:D3:BF:49:6F:38:CC:F7:7D:A7:83:64:A2:EB:5B:4B:40:15:4E:08:8A:25:4E:AC:5E:15:6A:B0:ED:6E:FF:D7\r\nzkclientca_cert2, Nov 6, 2025, trustedCertEntry,\r\nCertificate fingerprint (SHA-256): A2:B8:5E:FB:CB:B2:C3:59:0C:BA:E0:86:D1:DB:15:2C:5C:03:6E:22:CB:2D:33:03:3E:9E:BE:FE:0E:C1:7E:C4\r\n---------\r\n\r\n\r\nDoes zookeeper support multiple CAs in the truststore?\r\nAre there any limitations I should be aware off?\r\n\r\nWhen trying to connect with zkcli.sh with getting the below error\r\n- Unexpected throwable\r\nio.netty.handler.codec.DecoderException: javax.net.ssl.SSLHandshakeException: PKIX path validation failed: java.security.cert.CertPathValidatorException: Path does not chain with any of the trust anchors\r\n        at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:500)\r\n        at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)\r\n        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)\r\n        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)\r\n        at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)\r\n        at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)\r\n        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)\r\n        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)\r\n        at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)\r\n        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)\r\n        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)\r\n        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)\r\n        at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)\r\n        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\r\n        at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)\r\n        at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n        at java.base/java.lang.Thread.run(Thread.java:840)\r\nCaused by: javax.net.ssl.SSLHandshakeException: PKIX path validation failed: java.security.cert.CertPathValidatorException: Path does not chain with any of the trust anchors\r\n        at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131)\r\n        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383)\r\n        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326)\r\n        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)\r\n        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:654)\r\n        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:473)\r\n        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:369)\r\n        at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396)\r\n        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480)\r\n        at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1277)\r\n        at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1264)\r\n        at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)\r\n        at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask.run(SSLEngineImpl.java:1209)\r\n        at io.netty.handler.ssl.SslHandler.runDelegatedTasks(SslHandler.java:1695)\r\n        at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1541)\r\n        at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1377)\r\n        at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1428)\r\n        at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:530)\r\n        at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:469)\r\n        ... 17 common frames omitted\r\nCaused by: sun.security.validator.ValidatorException: PKIX path validation failed: java.security.cert.CertPathValidatorException: Path does not chain with any of the trust anchors\r\n        at java.base/sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:369)\r\n        at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:275)\r\n        at java.base/sun.security.validator.Validator.validate(Validator.java:264)\r\n        at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:285)\r\n        at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:144)\r\n        at org.apache.zookeeper.common.ZKTrustManager.checkServerTrusted(ZKTrustManager.java:135)\r\n        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:632)\r\n        ... 31 common frames omitted\r\nCaused by: java.security.cert.CertPathValidatorException: Path does not chain with any of the trust anchors\r\n        at java.base/sun.security.provider.certpath.PKIXCertPathValidator.validate(PKIXCertPathValidator.java:157)\r\n        at java.base/sun.security.provider.certpath.PKIXCertPathValidator.engineValidate(PKIXCertPathValidator.java:83)\r\n        at java.base/java.security.cert.CertPathValidator.validate(CertPathValidator.java:309)\r\n        at java.base/sun.security.validator.PKIXValidator.doValidate(PKIXValidator.java:364)",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13633512/comment/18035795",
+            "id": "18035795",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=xsasahu",
+              "name": "xsasahu",
+              "key": "xsasahu",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Santosh Kumar Sahu",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "body": "Hi [~tsaarni],\r\n\r\nCould you please provide some support? that would be helpful.\r\n\r\nThanks ",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=xsasahu",
+              "name": "xsasahu",
+              "key": "xsasahu",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Santosh Kumar Sahu",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "created": "2025-11-06T10:51:36.038+0000",
+            "updated": "2025-11-06T10:51:36.038+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13633512/comment/18036231",
+            "id": "18036231",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=tsaarni",
+              "name": "tsaarni",
+              "key": "JIRAUSER285792",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER285792&avatarId=49529",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER285792&avatarId=49529",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER285792&avatarId=49529",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER285792&avatarId=49529"
+              },
+              "displayName": "Tero Saarni",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "body": "Hi,\r\n\r\nHow does the client configuration for zkCli.sh look like? It seemed to me like the exception is from client and it would rather indicate that the client was not configured with the correct CA certificates, or it was not configured correctly.  \r\n\r\nI tested and multiple CAs work on both the server and client sides and they can be configured either as a truststore file or as a PEM bundle:\r\n * Server configured with multiple CAs accepted clients that presented client certificates issued by two separate root CAs\r\n * Client configured with multiple CAs accepted server that presented server certificates issued by two separate root CAs\r\n\r\nThe configuration for client would look like this when using keystore and truststore \r\n\r\n{{export CLIENT_JVMFLAGS=\"}}\r\n{{-Dzookeeper.clientCnxnSocket=org.apache.zookeeper.ClientCnxnSocketNetty}}\r\n{{-Dzookeeper.client.secure=true}}\r\n{{-Dzookeeper.ssl.keyStore.location=/path/client-cert-keystore.jks}}\r\n{{-Dzookeeper.ssl.keyStore.password=my-password}}\r\n{{-Dzookeeper.ssl.trustStore.location=/path/ca-truststore.jks}}\r\n{{-Dzookeeper.ssl.trustStore.password=my-password}}\r\n{{\"}}\r\n\r\nor in case of PEM bundles\r\n\r\n{{export CLIENT_JVMFLAGS=\"}}\r\n{{-Dzookeeper.clientCnxnSocket=org.apache.zookeeper.ClientCnxnSocketNetty}}\r\n{{-Dzookeeper.client.secure=true}}\r\n{{-Dzookeeper.ssl.keyStore.location=/path/client-bundle.pem}}\r\n{{-Dzookeeper.ssl.trustStore.location=/path/ca-bundle.pem}}\r\n{{\"}}\r\n\r\nA PEM bundle is a file that contains multiple PEM entries concatenated together, separated by the standard PEM markers.\r\n\r\nFor trusted CAs, concatenate multiple CA certificates:\r\n\r\n{{cat cacert1.pem cacert2.pem > ca-bundle.pem}}\r\n\r\nFor server or client credentials, concatenate the certificate and private key e.g.:\r\n\r\n{{cat client.pem client-key.pem > client-bundle.pem}}\r\n\r\n ",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=tsaarni",
+              "name": "tsaarni",
+              "key": "JIRAUSER285792",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER285792&avatarId=49529",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER285792&avatarId=49529",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER285792&avatarId=49529",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER285792&avatarId=49529"
+              },
+              "displayName": "Tero Saarni",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "created": "2025-11-07T12:59:55.235+0000",
+            "updated": "2025-11-07T13:13:50.390+0000"
+          }
+        ],
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/1",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/blocker.svg",
+        "name": "Blocker",
+        "id": "1"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13633310",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13633310",
+    "key": "ZOOKEEPER-4989",
+    "fields": {
+      "summary": "Compilation of client on Windows with MSVC is broken",
+      "created": "2025-11-04T12:47:22.000+0000",
+      "description": "Fix added for ZOOKEEPER-4810 (Fix buf data race at format_endpoint_info) in PR [https://github.com/apache/zookeeper/pull/2140] broke the build of the C client on Windows using MVSC.\r\nThe error reported is:\r\n{noformat}\r\nerror C2143: syntax error: missing ';' before 'type'{noformat}\r\nIt is reported at zookeeper-client\\zookeeper-client-c\\src\\zookeeper.c(5134)\r\n\r\n ",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13633310/comment/18035333",
+            "id": "18035333",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=jmalopoy",
+              "name": "jmalopoy",
+              "key": "JIRAUSER308848",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER308848&avatarId=54051",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER308848&avatarId=54051",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER308848&avatarId=54051",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER308848&avatarId=54051"
+              },
+              "displayName": "Jesus Malo",
+              "active": true,
+              "timeZone": "Europe/Madrid"
+            },
+            "body": "I created a proposal of fix in PR [https://github.com/apache/zookeeper/pull/2335]\r\n\r\n ",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=jmalopoy",
+              "name": "jmalopoy",
+              "key": "JIRAUSER308848",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER308848&avatarId=54051",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER308848&avatarId=54051",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER308848&avatarId=54051",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER308848&avatarId=54051"
+              },
+              "displayName": "Jesus Malo",
+              "active": true,
+              "timeZone": "Europe/Madrid"
+            },
+            "created": "2025-11-04T13:11:12.142+0000",
+            "updated": "2025-11-04T13:11:12.142+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13633310/comment/18036803",
+            "id": "18036803",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "body": "master: fb43500ea53fa5b57b6dc549c6582ae0ac60d7bc\r\n\r\nbranch-3.9: 3412d237e5a0174a28f963747c359031248b7c55",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "created": "2025-11-10T13:26:18.329+0000",
+            "updated": "2025-11-10T13:26:18.329+0000"
+          }
+        ],
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=jmalopoy",
+        "name": "jmalopoy",
+        "key": "JIRAUSER308848",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER308848&avatarId=54051",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER308848&avatarId=54051",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER308848&avatarId=54051",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER308848&avatarId=54051"
+        },
+        "displayName": "Jesus Malo",
+        "active": true,
+        "timeZone": "Europe/Madrid"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/1",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/blocker.svg",
+        "name": "Blocker",
+        "id": "1"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13632714",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13632714",
+    "key": "ZOOKEEPER-4988",
+    "fields": {
+      "summary": "Add [-R] recursive option to getAcl cli command",
+      "created": "2025-10-28T21:41:40.000+0000",
+      "description": "Similarly what we've implemented for setAcl command in the CLI, we could add the same  [-R] recursive option to getAcl too.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13631145",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13631145",
+    "key": "ZOOKEEPER-4987",
+    "fields": {
+      "summary": "zookeeper client fails to fallback to tls1.2 when tls1.3 ciphers are not correct / zookeeper client fails to fallback to tls1.3 when tls1.2 ciphers are not correct",
+      "created": "2025-10-09T13:36:31.000+0000",
+      "description": "Hi we have 2 microservices, 1. zookeeper based 2. kafka based\r\n\r\nFor zookeeper configuration , we have configured with below parameters related to tls - \r\n\r\n    ssl.protocol=TLSv1.3\r\n    ssl.quorum.protocol=TLSv1.3\r\n    ssl.enabledProtocols=TLSv1.3,TLSv1.2\r\n    ssl.quorum.enabledProtocols=TLSv1.3,TLSv1.2\r\n\r\nAlso jvm opts for zookeeper we have below opts - -Djdk.tls.client.protocols=TLSv1.3,TLSv1.2 -Dhttps.protocols=TLSv1.3,TLSv1.2\r\n\r\nFrom kafka side we are setting below 2 configuration parameters in properties file  which is used to start kafka server - \r\n\r\n  zookeeper.ssl.protocol: \"TLSv1.3\"\r\n  zookeeper.ssl.enabled.protocols: \"TLSv1.3,TLSv1.2\"\r\n\r\n \r\n\r\nfor kafka , we have below opts for jvm\r\n\r\n-Djdk.tls.client.protocols=TLSv1.3,TLSv1.2 -Dhttps.protocols=TLSv1.3,TLSv1.2\r\n\r\n \r\n\r\nZookeeper server version - 3.8.4\r\n\r\nKafka server version - 3.9.0\r\n\r\ninside kafka java class load path we are adding zookeeper server binary, because its zookeeper client component used by kafka for communicating with zookeeper server.\r\n\r\nSo that zookeeper client version is 3.9.2\r\n\r\n \r\n\r\nNow it was observed that, kafka uses TLSv1.3 to communicate with zookeeper which is okay, because zookeeper support both TLSv1.2 and TLSv1.3.\r\n\r\nBut if I dont set TLS1.3 related ciphers  and only set TLS1.2 related ciphers to zookeeper, ideally kafka also fallback to TLS1.2 and keep using TLSv1.2 for ssl handshake. But that doesnt happen.\r\n\r\nAs we have set only TLS1.2 related ciphers to zookeeper, zookeeper server falls back to TLS1.2 and expects that kafka should use TLS1.2 only but kafka still uses TLS1.3 and below error messages are printed in zookeeper logs - and kafka pods doesnt come up - \r\n\r\n \r\n\r\n{\"message\":\"Caused by: javax.net.ssl.SSLHandshakeException: The client supported protocol versions [TLSv1.3] are not accepted by server preferences [TLSv1.2]\",\"metadata\":\\{\"container_name\":\"zookeeper\",\"namespace\":\"namespace1\",\"pod_name\":\"zookeeper-0\"},\"service_id\":\"zookeeper\",\"severity\":\"info\",\"timestamp\":\"2025-10-09T08:50:15.443+00:00\",\"version\":\"1.2.0\"}\r\n{\"message\":\"\\tat java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131)\",\"metadata\":\\{\"container_name\":\"zookeeper\",\"namespace\":\"namespace1\",\"pod_name\":\"zookeeper-0\"},\"service_id\":\"zookeeper\",\"severity\":\"info\",\"timestamp\":\"2025-10-09T08:50:15.443+00:00\",\"version\":\"1.2.0\"}\r\n{\"message\":\"\\tat java.base/sun.security.ssl.Alert.createSSLException(Alert.java:117)\",\"metadata\":\\{\"container_name\":\"zookeeper\",\"namespace\":\"namespace1\",\"pod_name\":\"zookeeper-0\"},\"service_id\":\"zookeeper\",\"severity\":\"info\",\"timestamp\":\"2025-10-09T08:50:15.443+00:00\",\"version\":\"1.2.0\"}\r\n\r\n \r\n\r\n \r\n\r\n ",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13631145/comment/18029002",
+            "id": "18029002",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=xsasahu",
+              "name": "xsasahu",
+              "key": "xsasahu",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Santosh Kumar Sahu",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "body": "Hi [~kezhuw] \r\n\r\nCould you please provide some support? that would be helpful \r\n\r\n \r\n\r\nThanks",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=xsasahu",
+              "name": "xsasahu",
+              "key": "xsasahu",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Santosh Kumar Sahu",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "created": "2025-10-10T10:39:05.087+0000",
+            "updated": "2025-10-10T10:39:05.087+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13631145/comment/18029444",
+            "id": "18029444",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=xsasahu",
+              "name": "xsasahu",
+              "key": "xsasahu",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Santosh Kumar Sahu",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "body": "Hi [~tsaarni] \r\n\r\nCould you please provide some support? that would be helpful \r\n\r\n \r\n\r\nThanks in advance",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=xsasahu",
+              "name": "xsasahu",
+              "key": "xsasahu",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Santosh Kumar Sahu",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "created": "2025-10-13T09:19:33.236+0000",
+            "updated": "2025-10-13T09:19:33.236+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13631145/comment/18029758",
+            "id": "18029758",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=tsaarni",
+              "name": "tsaarni",
+              "key": "JIRAUSER285792",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER285792&avatarId=49529",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER285792&avatarId=49529",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER285792&avatarId=49529",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER285792&avatarId=49529"
+              },
+              "displayName": "Tero Saarni",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "body": "The following Kafka settings work for the Zookeeper client when Zookeeper server was configured with the default enabled protocols (TLSv1.3 and TLSv1.2) but server is restricted to only TLSv1.2 ciphers:\r\n\r\nzookeeper.ssl.client.enable=true \r\nzookeeper.ssl.protocol = TLSv1.3 \r\nzookeeper.ssl.enabled.protocols = TLSv1.2, TLSv1.3 \r\nzookeeper.clientCnxnSocket=org.apache.zookeeper.ClientCnxnSocketNetty",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=tsaarni",
+              "name": "tsaarni",
+              "key": "JIRAUSER285792",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER285792&avatarId=49529",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER285792&avatarId=49529",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER285792&avatarId=49529",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER285792&avatarId=49529"
+              },
+              "displayName": "Tero Saarni",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "created": "2025-10-14T12:01:39.767+0000",
+            "updated": "2025-10-14T12:01:39.767+0000"
+          }
+        ],
+        "maxResults": 3,
+        "total": 3,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/1",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/blocker.svg",
+        "name": "Blocker",
+        "id": "1"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13630806",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13630806",
+    "key": "ZOOKEEPER-4986",
+    "fields": {
+      "summary": "Disable reverse DNS lookup in TLS client and server",
+      "created": "2025-10-06T20:23:26.000+0000",
+      "description": "Port the property behavior from [Apache HBase|https://github.com/apache/hbase/commit/5baeacb7d65f8ec3386690cadbf5e091e20b7b23#diff-b8e69e4d42340619ee4cd63d9e45d7224727f78c05da70ff9ce080c1d33e36d6R157] which controls wether reverse DNS lookup is allowed in TLS handshake if the hostname is not available (e.g. connect via IP address, client hostname verification, etc.)\r\n\r\nDisable reverse DNS lookups by default for both quorum and client protocols to be consistent. This should be safe from backward compatibility perspective in a new major (minor?) version if we cut 4.0.0 from master soon. In a {{branch-3.9}} backport we should enable reverse lookup in the quorum protocol by default to support smooth transition.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/3",
+        "description": "This issue is being actively worked on at the moment by the assignee.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/inprogress.png",
+        "name": "In Progress",
+        "id": "3",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13630773",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13630773",
+    "key": "ZOOKEEPER-4985",
+    "fields": {
+      "summary": "zkCleanup.sh fails for non-standard config directories",
+      "created": "2025-10-06T13:01:54.000+0000",
+      "description": "The zkCleanup.sh script has several issues that make it difficult to use in containerized or non-standard deployments:\r\n # The script hardcodes the path to zoo.cfg and fails with confusing error messages when the config file is not in the default location\r\n # Unlike other ZooKeeper scripts, it doesn't properly support the --config flag even though zkEnv.sh supports it\r\n # When the config file is missing, it passes empty strings to PurgeTxnLog, causing confusing error messages\r\n\r\nSteps to Reproduce:\r\n * Run ZooKeeper with config in a non-standard location (e.g., /custom/path/zoo.cfg)\r\n * Try to run cleanup:\r\n\r\n{code:java}\r\n  grep: /path/to/zookeeper/bin/../conf/zoo.cfg: No such file or directory\r\n  grep: /path/to/zookeeper/bin/../conf/zoo.cfg: No such file or directory\r\n  Path '/path/to/zookeeper/bin' does not exist.\r\n  Usage:\r\n  PurgeTxnLog dataLogDir [snapDir] -n count {code}\r\n * Trying to use --config flag (which works for zkServer.sh) has no effect either\r\n\r\n \r\n\r\nThe reason, I believe, is that if the config can't be found empty strings will be passed to `PurgeTxnLogs` and that fails.\r\n\r\n \r\n\r\nI'll raise a PR for this.\r\n\r\n ",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13630474",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13630474",
+    "key": "ZOOKEEPER-4984",
+    "fields": {
+      "summary": "Upgrade OWASP plugin to 12.1.6 due to breaking changes in the API",
+      "created": "2025-10-01T19:27:56.000+0000",
+      "description": "Authentication is now required for {*}Sonatype OSS Index{*}: [https://ossindex.sonatype.org/doc/auth-required]\r\n\r\nI don't think we need this feature, so I won't add API key to the public repo, but I have to update the plugin to skip indexing with softfail.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13630474/comment/18027913",
+            "id": "18027913",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "Issue resolved by pull request 2323\n[https://github.com/apache/zookeeper/pull/2323]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-10-06T20:54:58.254+0000",
+            "updated": "2025-10-06T20:54:58.254+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13630384",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13630384",
+    "key": "ZOOKEEPER-4983",
+    "fields": {
+      "summary": "Add client-triggered operation count metrics",
+      "created": "2025-09-30T18:37:21.000+0000",
+      "description": "ZooKeeper currently doesn't have client triggered op count metrics. We would need a way to  track how many operations of each type are performing for the following:\r\n - Monitor client application performance and behavior effectively\r\n - Analyze client traffic load and patterns\r\n - Identify and resolve performance issues by operation type\r\n - Set up alerting and SLA monitoring for client operations",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=liwang",
+        "name": "liwang",
+        "key": "liwang",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=34044",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=34044",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=34044",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=34044"
+        },
+        "displayName": "Li Wang",
+        "active": true,
+        "timeZone": "America/Los_Angeles"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13630017",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13630017",
+    "key": "ZOOKEEPER-4982",
+    "fields": {
+      "summary": "Automatic HostProvider selection based on connection string format",
+      "created": "2025-09-26T04:27:23.000+0000",
+      "description": "Enhance ZooKeeper Java client to automatically detect connection string format and select appropriate HostProvider, enabling zero-code-change migration from static to DNS SRV-based service discovery.\r\n\r\nFollowing ZOOKEEPER-4956, applications must explicitly choose between StaticHostProvider and DnsSrvHostProvider. This ticket enables automatic provider selection based on connection string format, allowing seamless migration without code changes.\r\n\r\n\r\n\r\n",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13629767",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13629767",
+    "key": "ZOOKEEPER-4981",
+    "fields": {
+      "summary": "One node has neither crashed nor restarted again, but its information is inconsistent with other nodes",
+      "created": "2025-09-24T02:04:15.000+0000",
+      "description": "The Time line of the bug triggered:\r\n # A cluster with five nodes: zk1, zk2, zk3, zk4, zk5. And  zk3 is the leader.\r\n # client1 creates a znode \"/bug\" ;\r\n # client1 creates a znode \"delete\";\r\n # then, zk5 crashes(a follower, but it likely to be the server which connects to client1, because the fuzzlog file shows that before client1 sets znode \"/bug\" to nice , client1 seems to have been briefly disconnected from the cluster);\r\n # then, client1 reconnect to the cluster, and sets znode \"/bug\" 's value to nice;\r\n # client1 reads znode \"/bug\", get the value \"nice\";\r\n # client1 deletes znode \"/delete\";\r\n # client1 creates ephemeral znode /eph;\r\n # after that, zk4 crashes(important, it is the server which connect with client1);\r\n # then, client2 connects to the cluster, and it can read the \"/eph\" node which should be deleted after client1 leaves.\r\n\r\n*********************************************************************************\r\n\r\nThe acutal testing scenario is as following：\r\n\r\nThe cluster has five nodes: C1ZK1(172.30.0.2), C1ZK2(172.30.0.3), C1ZK3(172.30.0.4), C1ZK4(172.30.0.5), C1ZK5(172.30.0.6)\r\n # 2025-09-05 19:19:22,788 [ZK1Cli] - INFO -  build connection with zookeeper (Client1 builds connection with C1ZK4 [observered by the log])\r\n # 2025-09-05 19:19:23,025 [ZK1Cli] - INFO - created znode /bug hello\r\n # 2025-09-05 19:19:23,036 [ZK1Cli] - INFO - created znode /delete hello\r\n # 2025-09-05 19:19:22,887 prepare to crash node C1ZK5 before the IO operation did by C1ZK1 (C1ZK1 is going to create file: \"/home/zk1/evaluation/zk-3.6.3/zkData/version-2/log.100000001\")\r\n{code:java}\r\njava.io.FileOutputStream.<init>(FileOutputStream.java:213),\r\njava.io.FileOutputStream.<init>(FileOutputStream.java:162), \r\norg.apache.zookeeper.server.persistence.FileTxnLog.append$$PHOSPHORTAGGED(FileTxnLog.java:287),    org.apache.zookeeper.server.persistence.FileTxnSnapLog.append$$PHOSPHORTAGGED(FileTxnSnapLog.java:582),   org.apache.zookeeper.server.ZKDatabase.append$$PHOSPHORTAGGED(ZKDatabase.java:641),  org.apache.zookeeper.server.SyncRequestProcessor.run$$PHOSPHORTAGGED(SyncRequestProcessor.java:181), \r\norg.apache.zookeeper.server.SyncRequestProcessor.run(SyncRequestProcessor.java:0) {code}\r\n\r\n # 2025-09-05 19:19:23,724 [ZK1Cli] - INFO - set znode /bug nice\r\n # 2025-09-05 19:19:23,738 [ZK1Cli] - INFO - read znode /bug:nice\r\n # 2025-09-05 19:19:23,758 [ZK1Cli] - INFO - deleted znode /delete\r\n # 2025-09-05 19:19:23,770 [ZK1Cli] - INFO - created ephemeral znode /eph ephem\r\n # Client1 successfully create \"/eph\".\r\n # 2025-09-05 19:19:26,278 prepare to crash node C1ZK4 \r\n{code:java}\r\norg.apache.zookeeper.server.quorum.QuorumPacket.serialize$$PHOSPHORTAGGED(QuorumPacket.java:68), \r\norg.apache.jute.BinaryOutputArchive.writeRecord$$PHOSPHORTAGGED(BinaryOutputArchive.java:126), \r\norg.apache.zookeeper.server.quorum.Learner.writePacketNow$$PHOSPHORTAGGED(Learner.java:194), \r\norg.apache.zookeeper.server.quorum.Learner.writePacket$$PHOSPHORTAGGED(Learner.java:186), \r\norg.apache.zookeeper.server.quorum.Learner.request$$PHOSPHORTAGGED(Learner.java:254), \r\norg.apache.zookeeper.server.quorum.FollowerRequestProcessor.run$$PHOSPHORTAGGED(FollowerRequestProcessor.java:104), \r\norg.apache.zookeeper.server.quorum.FollowerRequestProcessor.run(FollowerRequestProcessor.java) {code}\r\n\r\n # 2025-09-05 19:19:27,124  ZK1Cli2 connect to the cluster and then incorrectly got ephemeral znode /eph created by cli1.\r\n # 2025-09-05 19:19:39,760 [ZKChecker] - INFO - server C1ZK3:11181 and server C1ZK1:11181 have different number of znodes:[/zookeeper/quota, /bug, /zookeeper]  [/zookeeper/quota, /bug, /eph, /zookeeper] \r\n\r\n**************************************************************************\r\n\r\nThe following information is the logs of each server. The transaction 0x100000001  \"9/5/25 7:19:22 PM CST session 0x5005888b8400000 cxid 0x0 zxid 0x100000001 createSession 15000\" indicates that they create a connection with the client.(C1ZK3 is the leader, so there is no such log.)  From the following information, C1ZK5 is the earliest server connecting to the client1.\r\n\r\nC1ZK4: 2025-09-05 19:19:22,932 [myid:4] - WARN  [QuorumPeer[myid=4](plain=[0:0:0:0:0:0:0:0]:11181)(secure=disabled):Follower@170] - Got zxid 0x100000001 expected 0x1\r\n\r\nC1ZK1:2025-09-05 19:19:22,889 [myid:1] - WARN  [QuorumPeer[myid=1](plain=[0:0:0:0:0:0:0:0]:11181)(secure=disabled):Follower@170] - Got zxid 0x100000001 expected 0x1\r\n\r\nC1ZK2:2025-09-05 19:19:22,889 [myid:2] - WARN  [QuorumPeer[myid=2](plain=[0:0:0:0:0:0:0:0]:11181)(secure=disabled):Follower@170] - Got zxid 0x100000001 expected 0x1\r\n\r\nC1ZK5:2025-09-05 19:19:22,884 [myid:5] - WARN  [QuorumPeer[myid=5](plain=[0:0:0:0:0:0:0:0]:11181)(secure=disabled):Follower@170] - Got zxid 0x100000001 expected 0x1\r\n\r\n \r\n\r\nSo it is really confused that why only the C1ZK1's node list is different from other servers. C1ZK1 is not the node which is crashed and not the node which is rebooted before Client2 connects to cluster. ",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13629485",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13629485",
+    "key": "ZOOKEEPER-4980",
+    "fields": {
+      "summary": "Upgrade netty to fix CVE-2025-58057 , CVE-2025-58056 ",
+      "created": "2025-09-20T11:42:10.000+0000",
+      "description": "CVE ID: CVE-2025-58057 , CVE-2025-58056 \r\nAffected ZooKeeper Version: 3.9.4\r\nVulnerable Dependency: Netty 4.1.119\r\nImpact: Netty is an asynchronous event-driven network application framework for development of maintainable high performance protocol servers and clients. In versions 4.1.124.Final, and 4.2.0.Alpha3 through 4.2.4.Final, Netty incorrectly accepts standalone newline characters (LF) as a chunk-size line terminator, regardless of a preceding carriage return (CR), instead of requiring CRLF per HTTP/1.1 standards. When combined with reverse proxies that parse LF differently (treating it as part of the chunk extension), attackers can craft requests that the proxy sees as one request but Netty processes as two, enabling request smuggling attacks. \r\nFix : This is fixed in versions 4.1.125.Final and 4.2.5.Final.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13629485/comment/18022088",
+            "id": "18022088",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=aonikolaev",
+              "name": "aonikolaev",
+              "key": "aonikolaev",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Aleksandr Nikolaev",
+              "active": true,
+              "timeZone": "Europe/Moscow"
+            },
+            "body": "[~dpramod]  updated by me in https://issues.apache.org/jira/browse/ZOOKEEPER-4976",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=aonikolaev",
+              "name": "aonikolaev",
+              "key": "aonikolaev",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=10452",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=10452",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=10452",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=10452"
+              },
+              "displayName": "Aleksandr Nikolaev",
+              "active": true,
+              "timeZone": "Europe/Moscow"
+            },
+            "created": "2025-09-23T08:02:42.323+0000",
+            "updated": "2025-09-23T08:02:42.323+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13629394",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13629394",
+    "key": "ZOOKEEPER-4979",
+    "fields": {
+      "summary": "Provide Metric for Maximum Ephemeral Node Path Length per Session",
+      "created": "2025-09-19T02:29:42.000+0000",
+      "description": "h4. Background\r\n\r\nCurrently, ZooKeeper handles the deletion of ephemeral nodes on closeSession by processing a session-based delete transaction, rather than creating a separate delete transaction for each znode.\r\nIf a session with a large number of ephemeral nodes is closed, the resulting transaction can exceed the jute.maxbuffer limit, causing errors.\r\nh4. Problem\r\n * When closing sessions with many ephemeral nodes, the delete transaction size may exceed {{{}jute.maxbuffer{}}}, resulting in \"unreasonable length\" errors and potential ZooKeeper failures.\r\n * ZooKeeper currently provides metrics for the number and size of ephemeral nodes, but does not provide metrics for the total path length of ephemeral nodes created by each session.\r\n * As a result, operators have difficulty estimating an appropriate value for {{jute.maxbuffer}} and cannot proactively monitor for related issues.\r\n\r\nh4. Improvement Suggestion\r\n * Provide a metric for the total path length of ephemeral nodes created by each session.\r\n * It is not necessary to provide this information for all sessions; reporting only the session with the largest total path length would be sufficient.\r\n * This metric would help operators determine a reasonable value for jute.maxbuffer and prevent related failures.\r\n\r\nh4. Reference\r\n\r\nSimilar issues: https://issues.apache.org/jira/browse/ZOOKEEPER-4916, https://issues.apache.org/jira/browse/ZOOKEEPER-4306",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13629278",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13629278",
+    "key": "ZOOKEEPER-4978",
+    "fields": {
+      "summary": "C Client Compilation failure with MSVC/VS2022",
+      "created": "2025-09-18T05:43:37.000+0000",
+      "description": "compilation works on Linux, but fails on Windows with VS2022.\r\n\r\nThis is observed both locally as well as in the Conan Center Index CI\r\n\r\nC:\\workspace\\cci_prod_PR-28411\\conan-home\\p\\b\\zookec1c78f9eb76fe\\b\\src\\zookeeper-client\\zookeeper-client-c\\src\\zookeeper.c(5116): error C2143: *syntax error: missing ';' before 'type'*\r\n\r\n\r\n\r\n[https://c3i.jfrog.io/artifactory/cci-build-logs/cci/prod/PR-28411/1/package_build_logs/build_log_zookeeper-client-c_3_9_4_d572bd5e0bbc71191a65c3795736ee02_f857efc37fc7be829d6723a9b14488e5409e9dab.txt]",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13628894",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13628894",
+    "key": "ZOOKEEPER-4977",
+    "fields": {
+      "summary": "superDigest configuration found in embedded pom.xml within zookeeper-3.9.3.jar",
+      "created": "2025-09-15T08:05:25.000+0000",
+      "description": "{{superDigest}} configuration found in embedded {{pom.xml}} within zookeeper-3.9.3.jar\r\n\r\n \r\n<zookeeper.DigestAuthenticationProvider.superDigest>super:D/InIHSb7yEEbrWz8b9l71RjZJU=</zookeeper.DigestAuthenticationProvider.superDigest>\r\n \r\n*Environment:*\r\n * ZooKeeper Version: 3.9.3 (the official binary distribution from Maven Central)\r\n\r\n * JDK Version: N/A (discovered during static analysis of the JAR file)\r\n\r\n * OS: N/A\r\n\r\n*Problem Description:*\r\nDuring a routine security audit of our application dependencies, we discovered that the {{zookeeper-3.9.3.jar}} file contains its own {{pom.xml}} file at the path {{{}META-INF/maven/org.apache.zookeeper/zookeeper/pom.xml{}}}. This embedded {{pom.xml}} file includes a property configuration for {{zookeeper.DigestAuthenticationProvider.superDigest}} with a pre-defined hash value.\r\n\r\n*Steps to Reproduce:*\r\n # Download the official {{org.apache.zookeeper:zookeeper:3.9.3}} JAR from Maven Central.\r\n\r\n # Extract the JAR file or use a tool ({{{}jar -tf{}}}, {{{}unzip -l{}}}, IDE) to list its contents.\r\n\r\n # Locate the file {{META-INF/maven/org.apache.zookeeper/zookeeper/pom.xml}} inside the JAR.\r\n\r\n # Inspect the content of this {{pom.xml}} file. On line 283 (or nearby), you will find:\r\n{{<zookeeper.DigestAuthenticationProvider.superDigest>super:D/InIHSb7yEEbrWz8b9l71RjZJU=</zookeeper.DigestAuthenticationProvider.superDigest>}}\r\n\r\n*Expected Behavior:*\r\nThe published binary JAR artifacts should not contain any residual or testing configuration files that include sensitive properties, especially those related to security authentication like the superuser digest. The build/packaging process should strip such elements from the final release artifact.\r\n\r\n*Actual Behavior:*\r\nThe released {{zookeeper-3.9.3.jar}} contains an embedded {{pom.xml}} which includes a configured {{superDigest}} property. While this is a hash and not a plaintext password, its presence in a widely distributed binary is a potential security risk.\r\n\r\n*Potential Risk:*\r\n # *Information Disclosure:* This exposes a known credential hash, which violates the principle of least surprise and could be used in conjunction with other vulnerabilities (e.g., CVE-2014-085 - information disclosure in logs).\r\n\r\n # *Increased Attack Surface:* If an attacker gains access to the JAR file (e.g., through a deployment leak), they extract this hash. Although SHA-1 hashing is used, it could potentially be targeted for brute-force attacks if the original password was weak, potentially granting superuser access to a ZooKeeper ensemble.\r\n\r\n # *Bad Practice:* The presence of this configuration, even if not activated by default, sets a poor security precedent for users who might find it and mistakenly use it without generating a new secure digest.\r\n \r\n!image-2025-09-15-16-00-33-152.png!",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13628894/comment/18020397",
+            "id": "18020397",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "body": "How exactly is this a problem? The embedded pom.xml file is just a copy of the pom.xml file that maven used to build the jar. It is for reference only. It's not a runtime configuration file in any way and does not represent any runtime security configuration. That value is a test value used only during the maven build for testing using ZooKeeper's unit and integration tests. It should have no impact on any user deployments.\r\n\r\n \r\n\r\nThis does not appear to be a problem to fix.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "created": "2025-09-15T15:57:08.812+0000",
+            "updated": "2025-09-15T15:57:08.812+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13628894/comment/18020399",
+            "id": "18020399",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "body": "This is not a problem. The configuration is a test value for unit testing with maven-surefire-plugin, and has no impact on user configuration or deployments. This does not represent bad practice, but is the normal, acceptable, best practice way of setting test values for testing.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "created": "2025-09-15T16:02:09.699+0000",
+            "updated": "2025-09-15T16:02:09.699+0000"
+          }
+        ],
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/2",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/critical.svg",
+        "name": "Critical",
+        "id": "2"
+      },
+      "labels": [
+        "security"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13628609",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13628609",
+    "key": "ZOOKEEPER-4976",
+    "fields": {
+      "summary": "Update Netty to fix CVE-2025-58057",
+      "created": "2025-09-10T18:30:07.000+0000",
+      "description": "Upgrade Netty version to 4.1.127.Final in order to fix CVE-2025-58057",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13628609/comment/18021446",
+            "id": "18021446",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "Issue resolved by pull request 2313\n[https://github.com/apache/zookeeper/pull/2313]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-09-19T16:09:09.521+0000",
+            "updated": "2025-09-19T16:09:09.521+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13628553",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13628553",
+    "key": "ZOOKEEPER-4975",
+    "fields": {
+      "summary": "memory leak when the c client opens SASL",
+      "created": "2025-09-10T09:14:21.000+0000",
+      "description": "zoo_sasl_make_basic_callbacks() malloc some memory, but never free it. Even if I want to free it from the outside, I can't get the struct zsasks_screen_ctx defined in the zk_sasl.c. At present, I can only create my own callbacks function to avoid this problem. zoo_sasl_make_basic_callbacks should be deleted or repaired.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13628539",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13628539",
+    "key": "ZOOKEEPER-4974",
+    "fields": {
+      "summary": "Remove enforced JDK 17 compilation warnings",
+      "created": "2025-09-10T07:33:50.000+0000",
+      "description": "To ensure full compatibility with JDK17 we should remove any usages of SecurityManager\r\nBecause it is deprecated and causing the build to fail with extra maven parameters\r\n-Dmaven.compiler.source=17 -Dmaven.compiler.target=17 -Dmaven.compiler.release=17\r\nthe build fails because of these warning\r\n{code:java}\r\n[WARNING] COMPILATION WARNING :\r\n[INFO] -------------------------------------------------------------\r\n[WARNING] /Users/andor/git/cdh/zookeeper/zookeeper-server/src/main/java/org/apache/zookeeper/server/WorkerService.java:[180,13] java.lang.SecurityManager in java.lang has been deprecated and marked for removal\r\n[WARNING] /Users/andor/git/cdh/zookeeper/zookeeper-server/src/main/java/org/apache/zookeeper/server/WorkerService.java:[180,39] getSecurityManager() in java.lang.System has been deprecated and marked for removal{code}",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13628539/comment/18019932",
+            "id": "18019932",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "Issue resolved by pull request 2312\n[https://github.com/apache/zookeeper/pull/2312]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-09-12T20:04:48.360+0000",
+            "updated": "2025-09-12T20:04:48.360+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13627991",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13627991",
+    "key": "ZOOKEEPER-4973",
+    "fields": {
+      "summary": "fips-mode parameter in the configuration doesn't work as expected",
+      "created": "2025-09-03T12:01:29.000+0000",
+      "description": "When using Zookeeper 3.9.4, I was trying to disable FIPS by setting the \"fips-mode\" parameter to false in the configuration as described in [the documentation|https://zookeeper.apache.org/doc/r3.9.4/zookeeperAdmin.html]. \r\n\r\n{code}\r\n$ cat /path/to/zoo.cfg\r\n...\r\nfips-mode=false\r\n...\r\n{code}\r\n\r\nHowever, that doesn't disable FIPS and I get errors when trying to configure authentication\r\n\r\n{code}\r\nzookeeper-1  | 2025-09-03 12:00:10,219 [myid:localhost:2181] - INFO  [main-SendThread(localhost:2181):o.a.z.Login@332] - Client successfully logged in.\r\nzookeeper-1  | 2025-09-03 12:00:10,220 [myid:localhost:2181] - WARN  [main-SendThread(localhost:2181):o.a.z.u.SecurityUtils@75] - Client will not use DIGEST-MD5 as SASL mechanism, because FIPS mode is enabled.\r\nzookeeper-1  | 2025-09-03 12:00:10,220 [myid:localhost:2181] - INFO  [main-SendThread(localhost:2181):o.a.z.ClientCnxn$SendThread@1170] - Opening socket connection to server localhost/127.0.0.1:2181.\r\n{code}\r\n\r\nThe issue is solved when using the flag \"-Dzookeeper.fips-mode=false\" (as mentioned in the documentation too).",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13627991/comment/18017948",
+            "id": "18017948",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "This is the client side. *zoo.cfg* is not being used on the client side, you can configure the client via system properties only.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-09-03T17:10:05.388+0000",
+            "updated": "2025-09-03T17:10:05.388+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13627399",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13627399",
+    "key": "ZOOKEEPER-4972",
+    "fields": {
+      "summary": "Flaky tests in PrometheusMetricsProviderConfigTest",
+      "created": "2025-08-26T19:00:33.000+0000",
+      "description": "{noformat}\r\norg.apache.zookeeper.metrics.MetricsProviderLifeCycleException: java.io.IOException: Failed to bind to /0.0.0.0:50512\r\n\tat org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider.start(PrometheusMetricsProvider.java:213)\r\n\tat org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProviderConfigTest.testValidHttpsAndHttpConfig(PrometheusMetricsProviderConfigTest.java:88)\r\n{noformat}",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13627380",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13627380",
+    "key": "ZOOKEEPER-4971",
+    "fields": {
+      "summary": "Provide canonical way to parse quorum members from `getConfig`",
+      "created": "2025-08-26T14:51:00.000+0000",
+      "description": "We have {{ZooKeeper::getConfig}} and {{ZooKeeperAdmin::reconfigure}}, but we don't have client side way to parse quorum members from {{getConfig}}. We do have {{QuorumPeerConfig::parseDynamicConfig}} but {{QuorumPeerConfig}} is tied with server side code.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13627061",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13627061",
+    "key": "ZOOKEEPER-4970",
+    "fields": {
+      "summary": "Deprecate methods of ZKConfig which throw QuorumPeerConfig.ConfigException",
+      "created": "2025-08-22T15:19:58.000+0000",
+      "description": "In pursue of ZOOKEEPER-233, I found some methods of {{ZKConfig}} throw {{ConfigException}} from {{QuorumPeerConfig}} which tied strictly with server side code. \r\n\r\nThis is the only breaking change I found during draft https://github.com/apache/zookeeper/pull/2307.\r\n\r\nSo, I suggest we can deprecate theses methods first, both in master and old releases.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13627061/comment/18017171",
+            "id": "18017171",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "body": "Issue resolved by pull request 2309\n[https://github.com/apache/zookeeper/pull/2309]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "created": "2025-08-30T13:38:03.865+0000",
+            "updated": "2025-08-30T13:38:03.865+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13627061/comment/18023969",
+            "id": "18023969",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "body": "Backported to branch-3.9 in commit f534e7135269d27f78380291b6582f674021239a to deprecate usages of {{QuorumPeerConfig.ConfigException}} from {{ZKClientConfig}}.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "created": "2025-10-01T04:51:50.784+0000",
+            "updated": "2025-10-01T04:51:50.784+0000"
+          }
+        ],
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/1",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/blocker.svg",
+        "name": "Blocker",
+        "id": "1"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13627050",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13627050",
+    "key": "ZOOKEEPER-4969",
+    "fields": {
+      "summary": "Cleanup zookeeper-contrib module",
+      "created": "2025-08-22T14:29:12.000+0000",
+      "description": "1. There are still old for ivy, ant. We are using maven now.\r\n2. Some of them are exectuable, but does not depend on concret log framework.\r\n3. Some of shell scripts are designed for development usages, which is hard to follow in maven age.\r\n4. Better to bundle exectuable module to executable jar.\r\n5. Probably more.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13627050/comment/18015735",
+            "id": "18015735",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "body": "I think in the modern era, where projects can have small, self-contained git repos, there is no longer a need to follow the conventions of the past, where a \"contrib/\" directory contained contributed related optional projects. Now, users can acquire those optional projects separately.\r\n\r\nI suggest moving those projects to separate git repos (one per contrib project), and periodically building them separately from the main project, and voting on releases independently of the main ZK project.\r\n\r\nDecoupling these from the main ZK build might make it easier to simplify and update their build mechanism.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "created": "2025-08-22T21:27:24.592+0000",
+            "updated": "2025-08-22T21:27:24.592+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626880",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626880",
+    "key": "ZOOKEEPER-4968",
+    "fields": {
+      "summary": "Introduce interface to cover ZooKeeper client operations",
+      "created": "2025-08-20T17:04:16.000+0000",
+      "description": "I think it is feasible even in 3.x with helper from {{ZooKeeperBuilder}}. But that prabably be abi incompatible.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13626880/comment/18015282",
+            "id": "18015282",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "body": "For my application, I created a wrapper ZooSession object that wraps ZooKeeper and handles replacing the ZooKeeper object internally when it experiences a session expiration, since the ZooKeeper client object is typically useless after a session expiration. However, I only implemented a subset of ZooKeeper's methods, to proxy, because I only used a few. It would be great to have an interface for ZooKeeper that defined the client API. Then I could have my own wrapper object implement that interface, so my automatic-reconnecting client could be used anywhere the usual ZooKeeper client object is used, as a drop-in replacement.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=ctubbsii",
+              "name": "ctubbsii",
+              "key": "ctubbsii",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ctubbsii&avatarId=15840",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ctubbsii&avatarId=15840",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ctubbsii&avatarId=15840",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ctubbsii&avatarId=15840"
+              },
+              "displayName": "Christopher Tubbs",
+              "active": true,
+              "timeZone": "America/New_York"
+            },
+            "created": "2025-08-20T22:18:56.488+0000",
+            "updated": "2025-08-20T22:18:56.488+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626878",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626878",
+    "key": "ZOOKEEPER-4967",
+    "fields": {
+      "summary": "Builder to construct ZKConfig",
+      "created": "2025-08-20T16:56:52.000+0000",
+      "description": "* We can make the population from system properties optional.\r\n* {{build}} and {{buildClient}}, though I see no much reason to have separated {{ZKClientConfig}}, but it is the way now.\r\n* Deprecate old constructors if possible, say {{ZKClientConfig(File configFile)}}.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626872",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626872",
+    "key": "ZOOKEEPER-4966",
+    "fields": {
+      "summary": "QuorumPeerConfig.ConfigException leaked to client side code through constructor of ZKConfig",
+      "created": "2025-08-20T16:04:51.000+0000",
+      "description": "{{QuorumPeerConfig}} is tied with server side code. Client side code should not touch {{QuorumPeerConfig}} in any form.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626819",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626819",
+    "key": "ZOOKEEPER-4965",
+    "fields": {
+      "summary": "Drop unnecessary {{@SuppressWarnings(\"deprecation\")}}",
+      "created": "2025-08-20T07:06:54.000+0000",
+      "description": null,
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13626819/comment/18015258",
+            "id": "18015258",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "body": "Issue resolved by pull request 2304\n[https://github.com/apache/zookeeper/pull/2304]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "created": "2025-08-20T19:16:43.396+0000",
+            "updated": "2025-08-20T19:16:43.396+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626778",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626778",
+    "key": "ZOOKEEPER-4964",
+    "fields": {
+      "summary": "Check permissions individually during admin server auth",
+      "created": "2025-08-19T18:32:11.000+0000",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=ztzg",
+        "name": "ztzg",
+        "key": "ztzg",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=ztzg&avatarId=39828",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=ztzg&avatarId=39828",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=ztzg&avatarId=39828",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=ztzg&avatarId=39828"
+        },
+        "displayName": "Damien Diederen",
+        "active": true,
+        "timeZone": "Europe/Berlin"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/6",
+        "description": "The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+        "name": "Closed",
+        "id": "6",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626555",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626555",
+    "key": "ZOOKEEPER-4963",
+    "fields": {
+      "summary": "Introduce ZooKeeper::builder for ZooKeeperBuilder",
+      "created": "2025-08-17T04:19:15.000+0000",
+      "description": null,
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13626555/comment/18015758",
+            "id": "18015758",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "body": "Issue resolved by pull request 2301\n[https://github.com/apache/zookeeper/pull/2301]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "created": "2025-08-23T05:58:30.336+0000",
+            "updated": "2025-08-23T05:58:30.336+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626541",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626541",
+    "key": "ZOOKEEPER-4962",
+    "fields": {
+      "summary": "Add getPort and getSecurePort for ZooKeeperServerEmbedded",
+      "created": "2025-08-16T21:19:25.000+0000",
+      "description": "Since ZOOKEEPER-4303, {{ZooKeeperServerEmbedded}} supports bind to port 0 to get unused port. It would be good to export {{getPort}} and {{getSecurePort}} for both inspection and custom connection string construction.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13626541/comment/18021466",
+            "id": "18021466",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "Issue resolved by pull request 2302\n[https://github.com/apache/zookeeper/pull/2302]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-09-19T17:08:53.091+0000",
+            "updated": "2025-09-19T17:08:53.091+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626538",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626538",
+    "key": "ZOOKEEPER-4961",
+    "fields": {
+      "summary": "Client side hostname verification failed due to reverse dns lookup in sasl client",
+      "created": "2025-08-16T20:40:36.000+0000",
+      "description": "Sasl client and {{ClientCnxnSocket}} use same {{{color}{color:#000000}InetSocketAddress{color}}} object. If sasl is enabled(which is the default), it will do {{getHostName}} which will change the result of {{getHostString}} which is used by {{ClientCnxnSocket}}.\r\n\r\nNormally this doesn't matter. But in fips-mode (which is enabled by default in 3.9), this could fail client side hostname verification. This could happen in following situation:\r\n\r\n1. server cert is signed with san ip address \"127.0.0.1\"\r\n2. connection string is \"127.0.0.1\"\r\n3. zookeeper.fips-mode is enabled in client\r\n4. zookeeper.sasl.client is enabled\r\n5. zookeeper.ssl.hostnameVerification is enabled\r\n\r\nThen the ssl connection could rejected by client as sasl client reverse dns lookup will turn {{getHostString}} to \"localhost\" which does not match server cert.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626477",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626477",
+    "key": "ZOOKEEPER-4960",
+    "fields": {
+      "summary": "Upgrade OWASP plugin to 12.1.3 due to recent parsing errors",
+      "created": "2025-08-15T17:17:07.000+0000",
+      "description": "Looks like our Owasp version 8.3.1 is outdated, because recently started to throw the following errors:\r\n{noformat}\r\n12:06:36  [ERROR] org.owasp.dependencycheck.data.nvdcve.DatabaseException: Unable to parse CPE: cpe:2.3:a:f5:nginx unit:*:*:*:*:*:*:*:*\r\n12:06:36  org.owasp.dependencycheck.data.update.exception.UpdateException: org.owasp.dependencycheck.data.nvdcve.DatabaseException: Unable to parse CPE: cpe:2.3:a:f5:nginx unit:*:*:*:*:*:*:*:*\r\n12:06:36      at org.owasp.dependencycheck.data.update.nvd.ProcessTask.processFiles (ProcessTask.java:157)\r\n12:06:36      at org.owasp.dependencycheck.data.update.nvd.ProcessTask.call (ProcessTask.java:114)\r\n12:06:36      at org.owasp.dependencycheck.data.update.nvd.ProcessTask.call (ProcessTask.java:41)\r\n12:06:36      at java.util.concurrent.FutureTask.run (FutureTask.java:266)\r\n12:06:36      at java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)\r\n12:06:36      at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)\r\n12:06:36      at java.lang.Thread.run (Thread.java:750){noformat}\r\n-I'll try to upgrade to a more recent version which still has Java 8 support.-\r\n\r\nWe have to upgrade to 12.1.3, because the fix hasn't been backported to Java 8 versions.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/6",
+        "description": "The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+        "name": "Closed",
+        "id": "6",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626473",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626473",
+    "key": "ZOOKEEPER-4959",
+    "fields": {
+      "summary": "Fix license files after logback/slf4j upgrade",
+      "created": "2025-08-15T17:00:50.000+0000",
+      "description": "{{Andor, I notice a number of license files are inaccurate:}}\r\n{code:java}\r\nrw-rr-@  1 phunt  staff    11359 Aug  8 12:21 commons-io-2.11.0.LICENSE.txt\r\nrw-rr-@  1 phunt  staff   515978 Aug  8 12:21 commons-io-2.17.0.jar\r\nrw-rr-@  1 phunt  staff    36274 Aug  8 12:21 logback-classic-1.2.13.LICENSE.txt\r\nrw-rr-@  1 phunt  staff   274470 Aug  8 12:21 logback-classic-1.3.15.jar\r\nrw-rr-@  1 phunt  staff    36274 Aug  8 12:21 logback-core-1.2.13.LICENSE.txt\r\nrw-rr-@  1 phunt  staff   571734 Aug  8 12:21 logback-core-1.3.15.jar\r\nrw-rr-@  1 phunt  staff     1133 Aug  8 12:21 slf4j-1.7.30.LICENSE.txt\r\nrw-rr-@  1 phunt  staff    68605 Aug  8 12:21 slf4j-api-2.0.13.jar{code}\r\n{{Might be more than this (if new deps added?) but these are the obvious ones}}\r\n{{I noticed. I think they need to be addressed/new RC.}}",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13626473/comment/18014422",
+            "id": "18014422",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "Issue resolved by pull request 2296\n[https://github.com/apache/zookeeper/pull/2296]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-08-17T12:58:47.048+0000",
+            "updated": "2025-08-17T12:58:47.048+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/6",
+        "description": "The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+        "name": "Closed",
+        "id": "6",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626447",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626447",
+    "key": "ZOOKEEPER-4958",
+    "fields": {
+      "summary": "\"ssl.clientHostnameVerification\" is ignored if \"ssl.authProvider\" is configured to \"x509\"",
+      "created": "2025-08-15T10:56:32.000+0000",
+      "description": "{{NettyServerCnxnFactory}} uses {{TrustManager}} from {{X509AuthenticationProvider}} if {{ssl.authProvider}} is configured.\r\n\r\nBut the {{clientHostnameVerificationEnabled}} is explicitly set to {{false}} in construction.\r\n\r\nI confirmed this locally with test.\r\n\r\nServer configs:\r\n* zookeeper.ssl.hostnameVerification: true\r\n* zookeeper.ssl.clientHostnameVerification: true\r\n* zookeeper.fips-mode: false\r\n* zookeeper.ssl.authProvider: x509\r\n\r\nRelated codes:\r\n* https://github.com/apache/zookeeper/blob/770804bef861bbfc9e150b63774f8557f1f8d995/zookeeper-server/src/main/java/org/apache/zookeeper/server/NettyServerCnxnFactory.java#L572\r\n* https://github.com/apache/zookeeper/blob/770804bef861bbfc9e150b63774f8557f1f8d995/zookeeper-server/src/main/java/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java#L123",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13626292",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13626292",
+    "key": "ZOOKEEPER-4957",
+    "fields": {
+      "summary": "Replace logback with slf4j-simple on branch-3.8 due to upgrading issues",
+      "created": "2025-08-13T16:59:33.000+0000",
+      "description": "Logback versions 1.2.x have some CVEs which can only be resolved by upgrading to at least logback 1.3.x. Unfortunately it also involves upgrading SLF4j to 2.0.x which is not acceptable on branch-3.8. Instead we should try to replace logback with slf4j-simple, but that implies some test code changes as well.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13626292/comment/18014190",
+            "id": "18014190",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "We ended up upgrading logging libraries on *branch-3.8* too, so we won't do this for now.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-08-15T19:28:24.482+0000",
+            "updated": "2025-08-15T19:28:39.268+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+        "name": "andor",
+        "key": "andorm",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+        },
+        "displayName": "Andor Molnar",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13625569",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13625569",
+    "key": "ZOOKEEPER-4956",
+    "fields": {
+      "summary": "Provide a HostProvider that uses DNS SRV record for dynamic server discovery",
+      "created": "2025-08-05T17:49:02.000+0000",
+      "description": "Currently, ZooKeeper clients use static configuration of server endpoints through connection strings. This creates operational challenges in dynamic environments like cloud deployments, container orchestration platforms, and auto-scaling scenarios. \r\n\r\nFor example, server topology change requires updating all client configurations and potentially restarting al client applications.\r\n\r\n\r\nThis ticket provides a `DnsSrvHostProvider` that leverages DNS SRV records for dynamic service discovery, allowing clients to automatically discover ZooKeeper servers without hardcoded configuration.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13625569/comment/18012185",
+            "id": "18012185",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=liwang",
+              "name": "liwang",
+              "key": "liwang",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=34044",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=34044",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=34044",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=34044"
+              },
+              "displayName": "Li Wang",
+              "active": true,
+              "timeZone": "America/Los_Angeles"
+            },
+            "body": "This ticket is for Java implementation.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=liwang",
+              "name": "liwang",
+              "key": "liwang",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=34044",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=34044",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=34044",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=34044"
+              },
+              "displayName": "Li Wang",
+              "active": true,
+              "timeZone": "America/Los_Angeles"
+            },
+            "created": "2025-08-05T18:01:10.207+0000",
+            "updated": "2025-08-05T18:01:10.207+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13625234",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13625234",
+    "key": "ZOOKEEPER-4955",
+    "fields": {
+      "summary": "Fix intererence with jvm ssl properties for ssl.crl and ssl.ocsp",
+      "created": "2025-08-01T06:49:46.000+0000",
+      "description": "EDIT:\r\n\r\nThe original proposal was rejected, and a different solution is implemented which mimics the JVM internal logic.\r\n\r\n\r\nZookeeper currenlty automatically calls PKIXBuilderParameters#setRevocationEnabled() based on the values of the *ssl.(quorum.)ocsp* and ssl(.quorum).crl config options.\r\n\r\nThis means that if we don't set the above options, then ZK will explicitly disable revocation checks. As those options are also setting global System/Security properties, we do not have a way to enable revocation checks without clobbering the revocation related global properties.\r\n\r\nAdding a new property will let ZK enable/disable revocation checks without clobbering the JVM global properties.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+        "name": "kezhuw",
+        "key": "kezhuw",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+        },
+        "displayName": "Kezhu Wang",
+        "active": true,
+        "timeZone": "Etc/GMT-8"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13624796",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13624796",
+    "key": "ZOOKEEPER-4954",
+    "fields": {
+      "summary": "Use FIPS style hostname verification when no custom truststore is specified",
+      "created": "2025-07-28T17:28:02.000+0000",
+      "description": "Zookeeper has two ways to enable hostname verification:\r\n\r\nThe traditional one is set in ZKTrustManager when a custome truststore is used.\r\nThe FIPS style one is used when when FIPs mode is set.\r\n\r\nHowever, there is currently no way to specify hostname verification when no custom truststore is used.\r\nThe FIPS style hostname verification does not depend on having a truststore defined, and can be used as a fallback when no custom trustore and no FIPS mode is configured.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13624796/comment/18011000",
+            "id": "18011000",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "Issue resolved by pull request 2283\n[https://github.com/apache/zookeeper/pull/2283]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=andor",
+              "name": "andor",
+              "key": "andorm",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=andorm&avatarId=32935",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=andorm&avatarId=32935",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=andorm&avatarId=32935",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=andorm&avatarId=32935"
+              },
+              "displayName": "Andor Molnar",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-07-30T18:38:22.126+0000",
+            "updated": "2025-07-30T18:38:22.126+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=stoty",
+        "name": "stoty",
+        "key": "stoty",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=stoty&avatarId=42544",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=stoty&avatarId=42544",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=stoty&avatarId=42544",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=stoty&avatarId=42544"
+        },
+        "displayName": "Istvan Toth",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/6",
+        "description": "The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+        "name": "Closed",
+        "id": "6",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13624298",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13624298",
+    "key": "ZOOKEEPER-4953",
+    "fields": {
+      "summary": "Fixing Typo In ZooKeeper Programmer's Guide",
+      "created": "2025-07-22T16:33:56.000+0000",
+      "description": "There are typo errors in Programmers Guide in the documentation of zookeeper 3.9.3.\r\nNeed to fix it.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13624298/comment/18009043",
+            "id": "18009043",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=rahulonasf",
+              "name": "rahulonasf",
+              "key": "JIRAUSER310530",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER310530&avatarId=54432",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER310530&avatarId=54432",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER310530&avatarId=54432",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER310530&avatarId=54432"
+              },
+              "displayName": "Rahul Kumar",
+              "active": true,
+              "timeZone": "Asia/Kolkata"
+            },
+            "body": "https://github.com/apache/zookeeper/pull/2281",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=rahulonasf",
+              "name": "rahulonasf",
+              "key": "JIRAUSER310530",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER310530&avatarId=54432",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER310530&avatarId=54432",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER310530&avatarId=54432",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER310530&avatarId=54432"
+              },
+              "displayName": "Rahul Kumar",
+              "active": true,
+              "timeZone": "Asia/Kolkata"
+            },
+            "created": "2025-07-22T16:37:05.093+0000",
+            "updated": "2025-07-22T16:37:05.093+0000"
+          },
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13624298/comment/18012305",
+            "id": "18012305",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "body": "Issue resolved by pull request 2281\n[https://github.com/apache/zookeeper/pull/2281]",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=kezhuw",
+              "name": "kezhuw",
+              "key": "kezhuw",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=kezhuw&avatarId=37929",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=kezhuw&avatarId=37929",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=kezhuw&avatarId=37929",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=kezhuw&avatarId=37929"
+              },
+              "displayName": "Kezhu Wang",
+              "active": true,
+              "timeZone": "Etc/GMT-8"
+            },
+            "created": "2025-08-06T08:04:15.068+0000",
+            "updated": "2025-08-06T08:04:15.068+0000"
+          }
+        ],
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=rahulonasf",
+        "name": "rahulonasf",
+        "key": "JIRAUSER310530",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=JIRAUSER310530&avatarId=54432",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=JIRAUSER310530&avatarId=54432",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=JIRAUSER310530&avatarId=54432",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=JIRAUSER310530&avatarId=54432"
+        },
+        "displayName": "Rahul Kumar",
+        "active": true,
+        "timeZone": "Asia/Kolkata"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/6",
+        "description": "The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/closed.png",
+        "name": "Closed",
+        "id": "6",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13624161",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13624161",
+    "key": "ZOOKEEPER-4952",
+    "fields": {
+      "summary": "Reduce the GC overhead of Prometheus reject exception handling",
+      "created": "2025-07-21T18:22:45.000+0000",
+      "description": "As part of ZOOKEEPER-4289,  Prometheus summary reporting is handled as an async operation using ThreadPoolExecutor.\r\n\r\nThe default RejectedExecutionHandler used by ThreadPoolExecutor is AbortPolicy, which performs toString() on both the Runnable object and exception object. This can significantly impact performance when too many exceptions occur after the max queue size exceeds.\r\n\r\n{code:java}\r\npublic static class AbortPolicy implements RejectedExecutionHandler {\r\n        /**\r\n         * Creates an {@code AbortPolicy}.\r\n         */\r\n        public AbortPolicy() { }\r\n\r\n        /**\r\n         * Always throws RejectedExecutionException.\r\n         *\r\n         * @param r the runnable task requested to be executed\r\n         * @param e the executor attempting to execute this task\r\n         * @throws RejectedExecutionException always\r\n         */\r\n        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {\r\n            throw new RejectedExecutionException(\"Task \" + r.toString() +\r\n                                                 \" rejected from \" +\r\n                                                 e.toString());\r\n        }\r\n    }\r\n\r\n{code}\r\n\r\nWe can reduce the GC overhead and improve performance by implementing a PrometheusRejectExceptionHandler and overriding the rejectedExecution() API.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=liwang",
+        "name": "liwang",
+        "key": "liwang",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=34044",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=34044",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=34044",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=34044"
+        },
+        "displayName": "Li Wang",
+        "active": true,
+        "timeZone": "America/Los_Angeles"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13624153",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13624153",
+    "key": "ZOOKEEPER-4951",
+    "fields": {
+      "summary": "Optimize the default PrometheusMetricsProvider max queue size",
+      "created": "2025-07-21T17:54:35.000+0000",
+      "description": "As part of ZOOKEEPER-4289,  Prometheus summary reporting is handled as an async operation using a queue. The default max queue size is 1M.\r\n\r\nWe have done perf tests with different queue sizes and found the optimal size is 10k.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [
+        "pull-request-available"
+      ],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13623004",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13623004",
+    "key": "ZOOKEEPER-4950",
+    "fields": {
+      "summary": "Do not set jdk.tls.rejectClientInitiatedRenegotiation in ZK client",
+      "created": "2025-07-10T08:03:22.000+0000",
+      "description": "The ZK client should not set random JRE system properties, as that can have unforseen effects in up in the stack / application.\r\n\r\nThis is not a major issue, as this property seems to be only relevant fro TLS 1.0 and lower, but this is part of making the ZK client a well behaved Java library that does not randomly override potentially problematic JVM system properties.\r\n\r\nIt is fine to keep this for the ZK server process.",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/4",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13622681",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13622681",
+    "key": "ZOOKEEPER-4949",
+    "fields": {
+      "summary": "Clean up TLS CRL/OCSP configuration",
+      "created": "2025-07-07T11:03:13.000+0000",
+      "description": "This is an umbrella ticket for the CRL / OCSP issues identified in ZK.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13622681/comment/18033187",
+            "id": "18033187",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=stoty",
+              "name": "stoty",
+              "key": "stoty",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=stoty&avatarId=42544",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=stoty&avatarId=42544",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=stoty&avatarId=42544",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=stoty&avatarId=42544"
+              },
+              "displayName": "Istvan Toth",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "body": "This is done.",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=stoty",
+              "name": "stoty",
+              "key": "stoty",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=stoty&avatarId=42544",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=stoty&avatarId=42544",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=stoty&avatarId=42544",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=stoty&avatarId=42544"
+              },
+              "displayName": "Istvan Toth",
+              "active": true,
+              "timeZone": "Europe/Budapest"
+            },
+            "created": "2025-10-27T11:16:50.473+0000",
+            "updated": "2025-10-27T11:16:50.473+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": {
+        "self": "https://issues.apache.org/jira/rest/api/2/user?username=stoty",
+        "name": "stoty",
+        "key": "stoty",
+        "avatarUrls": {
+          "48x48": "https://issues.apache.org/jira/secure/useravatar?ownerId=stoty&avatarId=42544",
+          "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&ownerId=stoty&avatarId=42544",
+          "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&ownerId=stoty&avatarId=42544",
+          "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&ownerId=stoty&avatarId=42544"
+        },
+        "displayName": "Istvan Toth",
+        "active": true,
+        "timeZone": "Europe/Budapest"
+      },
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/5",
+        "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/resolved.png",
+        "name": "Resolved",
+        "id": "5",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13622410",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13622410",
+    "key": "ZOOKEEPER-4948",
+    "fields": {
+      "summary": "When ZooKeeper client enters AuthFailed state (e.g., due to SASL authentication failure),  calling `close()` method does not terminate internal SendThread and EventThread.",
+      "created": "2025-07-03T03:10:26.000+0000",
+      "description": "Problem\r\nWhen ZooKeeper client enters AuthFailed state (e.g., due to SASL authentication failure), \r\ncalling `close()` method does not terminate internal SendThread and EventThread.\r\n\r\nReproduction Steps\r\n1. Configure SASL authentication with invalid credentials\r\n2. Connect to ZooKeeper server\r\n3. Watch receives `KeeperState.AuthFailed` event\r\n4. Call `zookeeper.close()`\r\n5. Observe SendThread/EventThread still running via thread dump\r\n\r\nExpected Behavior\r\nAll client resources including background threads should be released.\r\n\r\nProposed Fix\r\nRemove state check in close method:\r\npublic synchronized void close() throws InterruptedException {\r\n    if (cnxn != null) {\r\n        cnxn.close();\r\n    }\r\n}",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13622409",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13622409",
+    "key": "ZOOKEEPER-4947",
+    "fields": {
+      "summary": "When ZooKeeper client enters AuthFailed state (e.g., due to SASL authentication failure),  calling `close()` method does not terminate internal SendThread and EventThread.",
+      "created": "2025-07-03T03:10:24.000+0000",
+      "description": "Problem\r\nWhen ZooKeeper client enters AuthFailed state (e.g., due to SASL authentication failure), \r\ncalling `close()` method does not terminate internal SendThread and EventThread.\r\n\r\nReproduction Steps\r\n1. Configure SASL authentication with invalid credentials\r\n2. Connect to ZooKeeper server\r\n3. Watch receives `KeeperState.AuthFailed` event\r\n4. Call `zookeeper.close()`\r\n5. Observe SendThread/EventThread still running via thread dump\r\n\r\nExpected Behavior\r\nAll client resources including background threads should be released.\r\n\r\nProposed Fix\r\nRemove state check in close method:\r\npublic synchronized void close() throws InterruptedException {\r\n    if (cnxn != null) {\r\n        cnxn.close();\r\n    }\r\n}",
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/3",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/major.svg",
+        "name": "Major",
+        "id": "3"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/open.png",
+        "name": "Open",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+    "id": "13622286",
+    "self": "https://issues.apache.org/jira/rest/api/2/issue/13622286",
+    "key": "ZOOKEEPER-4946",
+    "fields": {
+      "summary": "Login thread failed to shutdown successfully, causing SendThead to be blocked",
+      "created": "2025-07-02T02:15:16.000+0000",
+      "description": "Call org.apache.zookeeper.client.ZooKeeperSaslClient#shutdown method in sendThread to close the zooKeeperSaslClient, that is, shutdown Login thread. Although the t.interrupt method was called, the run method of the Login thread did not detect the thread being interrupted. For example, when the Login thread enters the while loop of reLogin, there may be a situation where the Login thread cannot interrupt.\r\n\r\nThis will cause the t.join method to remain blocked, resulting in the sendThread thread being blocked and unabled to complete execution. This may result in many zk requests being unable to be released, such as possible deadlocks, due to sendThread being blocked in lower versions of zk, such as 3.5 and 3.6. Higher versions of zk, such as 3.8 and 3.9, have leaked sendThread threads.",
+      "comment": {
+        "comments": [
+          {
+            "self": "https://issues.apache.org/jira/rest/api/2/issue/13622286/comment/17987313",
+            "id": "17987313",
+            "author": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=zhanglu153",
+              "name": "zhanglu153",
+              "key": "JIRAUSER298392",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=34046",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=34046",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=34046",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=34046"
+              },
+              "displayName": "zhanglu153",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "body": "Call org.apache.zookeeper.client.ZooKeeperSaslClient#shutdown method, which is the shutdown Login thread.\r\n{code:java}\r\npublic void shutdown() {\r\n    if ((t != null) && (t.isAlive())) {\r\n        t.interrupt();\r\n        try {\r\n            t.join();\r\n        } catch (InterruptedException e) {\r\n            LOG.warn(\"error while waiting for Login thread to shutdown: \" + e);\r\n        }\r\n    }\r\n} {code}\r\nAfter calling t.interrupt, if the Login thread is not executing the Thread.sleep method, other code blocks cannot perceive that the thread has been interrupted and still ger stuck in a dead loop. This will cause the t.join method to consistently block the sendThread.\r\n\r\nFor example, when there is a failure in kerberos, the reLogin method call throws an exception. After retry has been set to 0, the reLogin method will be repeatedly called until successful. If the t.interrupt method is called at this time, the Login thread cannot be successfully interrupted. t.join method will block the sendThread method.\r\n{code:java}\r\ntry {\r\n    int retry = 1;\r\n    while (retry >= 0) {\r\n        try {\r\n            reLogin();\r\n            break;\r\n        } catch (LoginException le) {\r\n            if (retry > 0) {\r\n                --retry;\r\n                // sleep for 10 seconds.\r\n                try {\r\n                    sleepBeforeRetryFailedRefresh();\r\n                } catch (InterruptedException e) {\r\n                    LOG.error(\"Interrupted during login retry after LoginException:\", le);\r\n                    throw le;\r\n                }\r\n            } else {\r\n                LOG.error(\"Could not refresh TGT for principal: {}.\", principal, le);\r\n            }\r\n        }\r\n    }\r\n} catch (LoginException le) {\r\n    LOG.error(\"Failed to refresh TGT: refresh thread exiting now.\", le);\r\n    break;\r\n}{code}",
+            "updateAuthor": {
+              "self": "https://issues.apache.org/jira/rest/api/2/user?username=zhanglu153",
+              "name": "zhanglu153",
+              "key": "JIRAUSER298392",
+              "avatarUrls": {
+                "48x48": "https://issues.apache.org/jira/secure/useravatar?avatarId=34046",
+                "24x24": "https://issues.apache.org/jira/secure/useravatar?size=small&avatarId=34046",
+                "16x16": "https://issues.apache.org/jira/secure/useravatar?size=xsmall&avatarId=34046",
+                "32x32": "https://issues.apache.org/jira/secure/useravatar?size=medium&avatarId=34046"
+              },
+              "displayName": "zhanglu153",
+              "active": true,
+              "timeZone": "Etc/UTC"
+            },
+            "created": "2025-07-02T02:51:53.788+0000",
+            "updated": "2025-07-02T02:51:53.788+0000"
+          }
+        ],
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://issues.apache.org/jira/rest/api/2/priority/2",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/priorities/critical.svg",
+        "name": "Critical",
+        "id": "2"
+      },
+      "labels": [],
+      "status": {
+        "self": "https://issues.apache.org/jira/rest/api/2/status/10002",
+        "description": "A patch for this issue has been uploaded to JIRA by a contributor.",
+        "iconUrl": "https://issues.apache.org/jira/images/icons/statuses/document.png",
+        "name": "Patch Available",
+        "id": "10002",
+        "statusCategory": {
+          "self": "https://issues.apache.org/jira/rest/api/2/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  }
+]
