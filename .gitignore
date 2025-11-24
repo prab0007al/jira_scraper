@@ -9,7 +9,8 @@ env/
 ENV/
 
 # Generated data
-data/
+data/*
+!data/.gitkeep
 *.jsonl
 *.log
 
