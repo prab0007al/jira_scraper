@@ -51,6 +51,29 @@ python test_validation.py
 Verifies dataset quality and shows statistics.
 
 ---
+## 📦 Pre-Generated Data Included
+
+**For evaluator convenience**, this repository includes the complete scraped dataset:
+- `data/` directory: 12 JSON files with 600 raw issues from KAFKA, ZOOKEEPER, and CASSANDRA
+- `apache_jira_dataset.jsonl`: Final training dataset with 1800+ examples
+
+**You can explore the data immediately without running the scraper.**
+
+To regenerate from scratch:
+```bash
+# Clear existing data
+rm -rf data/*.json
+rm apache_jira_dataset.jsonl
+
+# Run pipeline
+python scraper.py
+python processor.py
+```
+
+**Note:** In production environments, generated files would be excluded via `.gitignore`. They're included here for assignment evaluation purposes.
+
+---
+
 
 ## Architecture
 
