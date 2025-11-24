@@ -262,9 +262,11 @@ jira_scraper/
 
 ---
 
-## License & Usage
+## License
 
-Scrapes **public data** from Apache Jira for educational purposes. Respects rate limits and Apache's terms of service.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Usage Note:** Scrapes **public data** from Apache Jira for educational purposes. Respects rate limits and Apache's terms of service.
 
 ---
 
