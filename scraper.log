@@ -18,3 +18,13 @@
 2025-11-25 02:57:45,368 - INFO - === Scraping Complete! ===
 2025-11-25 02:57:45,368 - INFO - Raw data collected in 'data/' directory
 2025-11-25 02:57:45,369 - INFO - Check 'scraper.log' for detailed logs
+2025-11-25 13:00:06,847 - INFO - === Apache Jira Scraper Started ===
+2025-11-25 13:00:06,850 - INFO - Starting scrape for KAFKA
+2025-11-25 13:00:06,982 - INFO - Completed scraping KAFKA
+2025-11-25 13:00:06,983 - INFO - Starting scrape for ZOOKEEPER
+2025-11-25 13:00:06,987 - INFO - Completed scraping ZOOKEEPER
+2025-11-25 13:00:06,988 - INFO - Starting scrape for CASSANDRA
+2025-11-25 13:00:06,991 - INFO - Completed scraping CASSANDRA
+2025-11-25 13:00:06,992 - INFO - === Scraping Complete! ===
+2025-11-25 13:00:06,992 - INFO - Raw data collected in 'data/' directory
+2025-11-25 13:00:06,993 - INFO - Check 'scraper.log' for detailed logs
