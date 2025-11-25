@@ -27,6 +27,14 @@ pip install -r requirements.txt
 
 **Requirements:** Python 3.8+, ~50MB disk space
 
+### Quick Run
+Run the entire pipeline with a single command:
+ ```bash 
+ python run_pipeline.py
+ ```
+This executes both scraper and processor automatically. Works on Windows, Linux, and macOS.
+
+**Manual execution (if preferred):**
 ### 2. Run Scraper
 ```bash
 python scraper.py
